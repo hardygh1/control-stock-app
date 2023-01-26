@@ -1,13 +1,17 @@
 const express = require('express')
+const path = require('path')
 require('dotenv').config()
 
 const app = express()
 
-app.get('/',(req, res) =>{
+//Archicos Estaticos
+app.use(express.static(path.join(__dirname, 'public')))
+
+//app.get('/',(req, res) =>{
     console.log('Peticion recibida')
 
-    res.status(200).send('<h1>Abelito deja la yerva porfavor, piensa en tu viejita :c</h1>')
-})
+    // res.status(200).sendFile('index.html',{ root: __dirname})
+//})
 
 const PORT = process.env.PORT 
 
